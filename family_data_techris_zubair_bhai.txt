@@ -1,0 +1,21 @@
+SELECT
+	fam.name AS family_code,
+	mem.name AS member_name,
+	std.name AS student_name,
+	cls.name AS class,
+	mem.contact_number AS contact,
+	mem.sms_cell_no AS sms_no
+FROM
+	ars_student AS std
+		LEFT JOIN
+	ars_course AS cls ON cls.id = std.course_id
+		LEFT JOIN
+	ars_family AS fam ON fam.id = std.family_id
+		LEFT JOIN
+	ars_family_member AS mem ON mem.fm_line = fam.id
+WHERE
+	std.current_status = 'present'
+AND
+	std.batch_id = 22
+ORDER BY
+	cls.name

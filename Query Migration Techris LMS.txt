@@ -1,0 +1,208 @@
+/****** Parent Query *************/
+SELECT
+	fam.id,
+	fam.name AS family_code,
+	fam_member.name AS parent_name,
+	fam_member.contact_number AS pwd
+FROM
+	ars_family AS fam
+		LEFT JOIN 
+	ars_family_member AS fam_member ON fam_member.fm_line = fam.id
+WHERE
+	fam.active = 'true'
+ORDER BY
+	fam.id;
+
+
+/************ Class Subjects ************/
+
+SELECT
+	classs.id AS class_id,
+	classs.name AS class_name,
+	sub.id AS subject_id,
+	sub.name AS subject_name
+FROM
+	ars_course AS classs
+		LEFT JOIN
+	ars_subject_course_rel AS relation ON relation.course_id = classs.id 
+		LEFT JOIN
+	ars_subject AS sub ON sub.id = relation.subject_id
+ORDER BY
+	classs.name;
+
+/********** Student Query *********/
+
+SELECT 
+	std.family_id,
+	name AS student_name,
+	(SELECT name FROM ars_course AS classs WHERE classs.id = std.course_id) AS class_name
+FROM 
+	ars_student AS std
+WHERE 
+	family_id IN (SELECT id FROM ars_family WHERE active='true') 
+	AND current_status = 'present'
+ORDER BY
+	std.family_id;
+
+
+/******** Migration ***************/
+
+INSERT INTO worldcc.classes(class, section, subject)
+SELECT class_name, '', subject_name FROM techris_migration.class_subjects;
+
+INSERT INTO worldcc.elearning_user(email, user_name, password, family_id)
+SELECT DISTINCT family_code AS email, parent_name, TO_BASE64(MD5(replace(pwd, '-', ''))) AS pwd, id AS family_id FROM techris_migration.parent;
+
+INSERT INTO worldcc.students(parent_id, name, class)
+SELECT 
+	prnt.user_id,
+	std.student_name,
+    std.class_name
+FROM 
+	techris_migration.student AS std
+		LEFT JOIN
+	worldcc.elearning_user AS prnt ON prnt.family_id = std.family_id
+
+DELETE QUERY 141 users:
+
+DELETE FROM worldcc.elearning_user WHERE email= 'F00062';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00103';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00240';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00300';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00362';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00365';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00426';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00428';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00434';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00437';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00442';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00448';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00453';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00459';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00464';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00467';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00477';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00496';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00522';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00532';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00538';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00588';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00616';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00618';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00619';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00621';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00623';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00624';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00625';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00631';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00635';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00637';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00640';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00645';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00646';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00654';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00656';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00657';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00662';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00664';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00665';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00669';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00670';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00675';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00676';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00677';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00678';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00679';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00682';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00685';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00687';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00690';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00691';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00695';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00696';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00698';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00699';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00701';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00702';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00703';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00706';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00708';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00709';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00710';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00711';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00718';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00721';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00724';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00760';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00761';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00762';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00764';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00778';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00779';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00780';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00797';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00803';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00846';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00865';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00866';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00867';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00868';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00869';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00872';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00875';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00879';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00880';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00901';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00904';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00911';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00913';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00919';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00920';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00967';
+DELETE FROM worldcc.elearning_user WHERE email= 'F00969';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01014';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01053';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01055';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01065';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01066';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01068';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01071';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01072';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01074';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01077';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01080';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01082';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01086';
+DELETE FROM worldcc.elearning_user WHERE email= 'F011311';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01153';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01154';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01155';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01157';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01160';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01161';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01165';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01167';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01168';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01182';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01194';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01200';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01205';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01219';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01241';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01243';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01266';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01270';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01287';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01322';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01328';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01331';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01339';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01365';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01394';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01397';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01399';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01400';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01406';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01409';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01444';
+DELETE FROM worldcc.elearning_user WHERE email= 'F01510';

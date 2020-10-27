@@ -1,0 +1,303 @@
+fieldset.scheduler-border {
+	border: 1px groove #ddd !important;
+	padding: 0 1.4em 1.4em 1.4em !important;
+	margin: 0 0 1.5em 0 !important;
+	-webkit-box-shadow:  0px 0px 0px 0px #000;
+	box-shadow:  0px 0px 0px 0px #000;
+}
+legend.scheduler-border {
+	font-size: 1.2em !important;
+	font-weight: bold !important;
+	text-align: left !important;
+	width:auto;
+	padding:0 10px;
+	border-bottom:none;
+}
+legend {
+	margin: 0px;
+	padding: 0px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+fieldset {
+	margin-top: 0px;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+	/* Chrome- and Safari-specific CSS here*/
+/*	fieldset {
+		margin-top: -20px;
+	}*/
+}
+
+#map_canvas {
+	width: 200px;
+	height: 200px;
+	background-color: #CCC;
+}
+.form-horizontal .control-label {
+	width: 120px;
+	text-align: left;
+}
+input.span3 {
+	/*width: 400px*/
+}
+.form-horizontal .controls {
+	margin-left: 0px;
+}
+.input-prepend {
+	margin-bottom: 4px !important;
+}
+.myscroller {
+	overflow-y: scroll;
+	height: 219px
+}
+.span7 {
+	/*width: 650px !important;*/
+}
+textarea {
+	height:36px !important;
+}
+.textarea {
+	/*width: 340px !important;*/
+
+	height: 140px !important;
+}
+
+/* Large desktop */
+@media (min-width: 1200px) {
+	.controls input[type=text] {
+		width: 615px;
+	}
+	.bootstrap-tagsinput {
+		width: 610px;
+	}
+	.controls select {
+		width: 625px;
+	}
+	.control-group textarea {
+		width: 322px;
+	}
+	.myright input[type=text] {
+		width: 315px;
+	}
+	.myright textarea {
+		width: 315px;
+	}
+	.myright .input-append input[type=text] {
+		width: 287px;
+	}
+	.myfakeupload {
+		width: 213px !important;
+	}
+	.controls-row input[type=text] {
+		width: 301px ;
+	}
+	.controls-row select {
+		width: 310px;
+	}
+	#datepicker {
+		width: 272px;
+	}
+	.controls-row .input-prepend {
+		margin-bottom: 0px !important;
+	}
+
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (max-width: 1024px) {
+	.controls input[type=text] {
+		width: 465px;
+	}
+	.bootstrap-tagsinput {
+		width: 460px;
+	}
+	.controls select {
+		width: 475px;
+	}
+	.control-group textarea {
+		width: 247px;
+	}
+	.myright input[type=text] {
+		width: 245px;
+	}
+	.myright textarea {
+		width: 245px;
+	}
+	.myright .input-append input[type=text] {
+		width: 218px;
+	}
+	.myfakeupload, .myfakeupload2 {
+		width: 144px !important;
+	}
+	.controls-row input:nth-of-type(2) {
+		width: 240px;
+	}
+	.controls-row select {
+		width: 250px;
+	}
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	.controls input[type=text] {
+		width: 310px;
+	}
+	.bootstrap-tagsinput[type=text] {
+		width: 300px;
+	}
+	.controls select {
+		width: 320px;
+	}
+	.control-group textarea {
+		width: 175px;
+	}
+	.myright input[type=text] {
+		width: 175px;
+	}
+	.myright textarea {
+		width: 175px;
+	}
+	.myright .input-append input[type=text] {
+		width: 147px;
+	}
+	.myfakeupload, .myfakeupload2 {
+		width: 73px !important;
+	}
+	.controls-row input[type=text], .controls-row select {
+		/*margin-bottom: 10px;*/
+		/*border-color: #000 !important;*/
+	}
+	.controls-row .input-prepend input[type=text] {
+		width: 70px !important;
+	}
+	.controls-row .input-prepend .add-on {
+		/*margin-top: -9px;*/
+	}
+	.controls-row input:nth-of-type(2) {
+		width: 100px !important;
+	}
+	.controls-row select {
+		width: 110px !important;
+		/*margin-bottom: 0px;*/
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+	.controls input[type=text] {
+		width: 395px;
+	}
+	.bootstrap-tagsinput[type=text] {
+		width: 385px;
+	}
+	.controls select {
+		width: 405px;
+	}
+	.control-group textarea {
+		width: 211px;
+	}
+	.myright input[type=text] {
+		width: 245px;
+	}
+	.myright textarea {
+		width: 245px;
+	}
+	.myright .input-append input[type=text] {
+		width: 218px;
+	}
+	.controls-row input[type=text], .controls-row select {
+		margin-bottom: 10px;
+	}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+	.controls input[type=text] {
+		width: 230px;
+	}
+	.bootstrap-tagsinput {
+		width: 220px;
+	}
+	.controls select {
+		width: 240px;
+	}
+	.control-group textarea {
+		width: 190px ;
+	}
+	.myright input[type=text] {
+		width: 205px;
+	}
+	.myright textarea {
+		width: 205px;
+	}
+	.myright .input-append input[type=text] {
+		width: 179px;
+	}
+	.myfakeupload, .myfakeupload2 {
+		width: 105px !important;
+	}
+	.controls-row input[type=text], .controls-row select {
+		margin-bottom: 10px;
+		width: 230px;
+	}
+	.controls-row .input-prepend input[type=text] {
+		width: 199px;
+	}
+	.controls-row .input-prepend .add-on {
+		margin-top: -9px;
+	}
+	.controls-row input:nth-of-type(2) {
+		width: 230px;
+	}
+	.controls-row select {
+		width: 240px;
+		margin-bottom: 0px;
+	}
+	.span4:first-of-type {
+		margin-bottom: 10px !important;
+	}
+}
+
+/*
+background-color: red !important;
+background-color: red;
+*/
+
+/*@media (max-width: 320px) and (min-width: 320px)  {
+	.control-group textarea {
+		width: 196px;
+
+	}
+}*/
+
+
+.myright .input-append {
+	margin-left: 4px;
+}
+
+.input-append a:hover {
+	text-decoration: none;
+}
+
+.height_285 {
+	height: 235px !important;
+}
+.height_145 {
+	height: 140px !important;
+}
+
+
+.controls-row {
+	margin-bottom: 8px;
+}
+
+input[type=submit] {
+	width: auto !important;
+}
+
+input[type=reset] {
+	width: auto !important;
+}

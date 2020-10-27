@@ -1,0 +1,113 @@
+.slip-bg {
+  width: 855px;
+  height: 375px;
+  background-image: url(../images/bg-dynamic.gif);
+  margin-left: auto;
+  margin-right: auto;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: solid 1px #cccccc;
+  margin-bottom: 40px;
+}
+.logo {
+  width: 349px;
+  height: 76px;
+  float: left;
+  margin-left: 40px;
+  margin-top: 20px;
+}
+.slip-left {
+  width: 450px;
+  height: auto;
+  float: left;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.slip-right {
+  width: 250px;
+  height: auto;
+  margin-left: 70px;
+  margin-top: 40px;
+  float: left;
+}
+
+.month-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 30px;
+  color: #2e3192;
+}
+.signature {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: normal;
+  color: #2e3192;
+  text-align: center;
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: #afa7ce;
+  height: auto;
+  width: 100%;
+  float: left;
+  margin-top: 35px;
+}
+.day {
+  width: 60px;
+  height: auto;
+  float: left;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: #000000;
+  text-decoration: none;
+  padding: 5px;
+  border: 1px solid #afa7ce;
+  text-align: center;
+  margin: 5px;
+}
+.day input {
+  width: 100%;
+}
+table {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 18px;
+  font-style: italic;
+  color: #2e3192;
+}
+table input {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  color: #333333;
+  text-decoration: none;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #afa7ce;
+}
+
+/* .inputMenuSearch {
+  color: #00c853;
+  font-size: 15px;
+  outline: none;
+  font-weight: 800;
+  align-items: center;
+  background: #fff;
+  border-radius: 23px;
+  height: 36px;
+  width: 220px;
+  padding: 0 0 0 20px;
+  border: 1px solid #148659;
+  border-radius: 23px;
+  display: block;
+  margin-left: 10%;
+  margin-right: auto;
+  margin-top: 18px;
+  margin-bottom: 4px;
+  box-sizing: border-box;
+}
+
+.inputMenuSearch:focus {
+  border: 2px solid #148659;
+} */

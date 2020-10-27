@@ -1,0 +1,4 @@
+RewriteEngine on 
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?worldcompliancecheck.com [NC] 
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?worldcompliancecheck.com.*$ [NC] 
+RewriteRule \.(jpg|php|pdf)$ - [F]
